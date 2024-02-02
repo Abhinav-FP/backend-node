@@ -9,7 +9,6 @@ const dotenv = require("dotenv");
 dotenv.config();
 app.use(cors());
 app.use(express.json({ limit: "10mb" }));
-//app.use(cors)
 var session = require('express-session')
 // const app = require('express')()
 const URL =process.env.DATABASE_URL
