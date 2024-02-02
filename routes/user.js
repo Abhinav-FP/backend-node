@@ -17,4 +17,4 @@ route.put("/users/:fname",usercontroller.userUpdate)
 route.delete("/users/:id",usercontroller.userDelete)
 
 
-module.exports =route;
+module.exports =route; 
