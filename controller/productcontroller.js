@@ -14,12 +14,16 @@ exports.productadd = async (req, res) => {
       emi,
       model,
     } = req.body;
+    const lastuserid = await product.findOne({}, "userId").sort({ userId: -1 });
+    //console.log("Last User id", lastuserid);
+    const newUserId = lastuserid ? lastuserid.userId + 1 : 1;
+    //console.log("newUserIdd", newUserId);
     const finder = await product.findOne({ model: model });
     if (finder != null) {
       throw "Model already exists";
     }
     const result = new product({
-      //userId: newUserId,
+      userId: newUserId,
       name: name,
       price: price,
       description: description,
